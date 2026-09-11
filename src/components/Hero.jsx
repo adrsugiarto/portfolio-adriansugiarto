@@ -60,50 +60,16 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Right Column: Clean Academic Spotlight Card */}
+        {/* Right Column: Seamless Cutout Portrait */}
         <div className="hero-visual">
-          <div className="spotlight-card glass-card animate-float">
-            <div className="card-top-bar">
-              <div className="window-dots">
-                <span className="dot dot-red"></span>
-                <span className="dot dot-yellow"></span>
-                <span className="dot dot-green"></span>
-              </div>
-              <div className="window-title">orcid.org/0009-0002-6704-2507</div>
-            </div>
-
-            <div className="profile-wrapper">
-              <div className="avatar-frame">
-                <img 
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80" 
-                  alt={profileData.name} 
-                  className="profile-img"
-                />
-                <div className="avatar-glow"></div>
-              </div>
-
-              <div className="profile-info-box">
-                <h3 className="profile-name">{profileData.shortName}</h3>
-                <p className="profile-role">M.Kom. & S.SI. - UKSW Salatiga</p>
-              </div>
-            </div>
-
-            {/* Floating Academic Badges */}
-            <div className="floating-badge badge-top-right">
-              <div className="badge-icon"><IconOrcid size={20} /></div>
-              <div className="badge-text">
-                <span className="badge-val">ORCID Verified</span>
-                <span className="badge-lbl">Peneliti Terdaftar</span>
-              </div>
-            </div>
-
-            <div className="floating-badge badge-bottom-left">
-              <div className="badge-icon"><Award size={18} /></div>
-              <div className="badge-text">
-                <span className="badge-val">IPK 3.94</span>
-                <span className="badge-lbl">Cum Laude (S.SI)</span>
-              </div>
-            </div>
+          <div className="portrait-container">
+            <div className="portrait-backdrop-glow"></div>
+            <img 
+              src={profileData.avatar} 
+              alt={profileData.name} 
+              className="portrait-standalone-img profile-img-bw"
+            />
+            <div className="portrait-bottom-fade"></div>
           </div>
         </div>
       </div>

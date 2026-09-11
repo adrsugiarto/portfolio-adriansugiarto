@@ -168,164 +168,82 @@
 
 }
 
-/* Visual Spotlight Card */
+/* Seamless Standalone Cutout Portrait (No Boxes, No Borders) */
 .hero-visual {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
 }
 
-.spotlight-card {
-  width: 100%;
-  max-width: 440px;
-  padding: 24px;
+.portrait-container {
   position: relative;
-  border-color: var(--border-blue);
-  background: linear-gradient(180deg, var(--bg-card) 0%, var(--primary-50) 100%);
-}
-
-[data-theme='dark'] .spotlight-card {
-  background: linear-gradient(180deg, var(--bg-card) 0%, rgba(30, 58, 138, 0.2) 100%);
-}
-
-.card-top-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--border-light);
-  margin-bottom: 24px;
-}
-
-.window-dots {
-  display: flex;
-  gap: 6px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-.dot-red { background: #EF4444; }
-.dot-yellow { background: #F59E0B; }
-.dot-green { background: #10B981; }
-
-.window-title {
-  font-size: 0.8rem;
-  font-family: monospace;
-  color: var(--text-muted);
-}
-
-.profile-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.avatar-frame {
-  position: relative;
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  margin-bottom: 16px;
-  padding: 4px;
-  background: linear-gradient(135deg, var(--primary-600), var(--primary-300));
-}
-
-.profile-img {
   width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
+  max-width: 560px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-.avatar-glow {
+.portrait-backdrop-glow {
   position: absolute;
-  inset: 0;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 440px;
+  height: 440px;
   border-radius: 50%;
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, rgba(37, 99, 235, 0.05) 65%, transparent 80%);
+  filter: blur(60px);
   pointer-events: none;
+  z-index: 0;
 }
 
-.profile-name {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 4px;
+.portrait-standalone-img {
+  width: 100%;
+  max-height: 640px;
+  object-fit: contain;
+  object-position: center bottom;
+  position: relative;
+  z-index: 1;
+  transform: scale(1.08);
+  transform-origin: bottom center;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 98%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 75%, rgba(0,0,0,0) 98%);
 }
 
-.profile-role {
-  font-size: 0.9rem;
-  color: var(--primary-600);
-  font-weight: 600;
-}
-
-[data-theme='dark'] .profile-role {
-  color: var(--primary-400);
-}
-
-/* Floating Badges */
-.floating-badge {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 16px;
-  background: var(--bg-card);
-  border: 1px solid var(--border-blue);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
-  backdrop-filter: blur(10px);
-}
-
-.badge-top-right {
-  top: -15px;
-  right: -20px;
-}
-
-.badge-bottom-left {
-  bottom: -20px;
-  left: -20px;
+@media (max-width: 992px) {
+  .portrait-standalone-img {
+    max-height: 480px;
+    transform: scale(1);
+  }
 }
 
 @media (max-width: 576px) {
-  .badge-top-right {
-    top: 10px;
-    right: 10px;
-  }
-  .badge-bottom-left {
-    bottom: 10px;
-    left: 10px;
+  .portrait-standalone-img {
+    max-height: 380px;
   }
 }
 
-.badge-icon {
-  width: 34px;
-  height: 34px;
-  border-radius: var(--radius-sm);
-  background: var(--primary-100);
-  color: var(--primary-700);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.profile-img-bw {
+  filter: grayscale(100%) contrast(115%) brightness(102%);
+  transition: filter 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s ease;
 }
 
-[data-theme='dark'] .badge-icon {
-  background: rgba(30, 58, 138, 0.5);
-  color: var(--primary-300);
+.portrait-container:hover .profile-img-bw {
+  filter: grayscale(0%) contrast(100%) brightness(100%);
 }
 
-.badge-text {
-  display: flex;
-  flex-direction: column;
+.portrait-bottom-fade {
+  position: absolute;
+  bottom: -5px;
+  left: -20px;
+  right: -20px;
+  height: 150px;
+  background: linear-gradient(to top, var(--bg-main) 18%, rgba(248, 250, 252, 0.6) 65%, transparent 100%);
+  z-index: 2;
+  pointer-events: none;
 }
 
-.badge-val {
-  font-size: 0.85rem;
-  font-weight: 700;
-}
-
-.badge-lbl {
-  font-size: 0.725rem;
-  color: var(--text-muted);
+[data-theme='dark'] .portrait-bottom-fade {
+  background: linear-gradient(to top, var(--bg-main) 18%, rgba(11, 17, 32, 0.6) 65%, transparent 100%);
 }

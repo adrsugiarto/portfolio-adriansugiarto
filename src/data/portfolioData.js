@@ -2,6 +2,7 @@ export const profileData = {
   name: "Adrian Herma Sugiarto, S.SI., M.Kom.",
   shortName: "Adrian Herma Sugiarto",
   title: "Peneliti Sistem Informasi & Full-Stack Developer",
+  avatar: "/foto_adriansugiarto.png",
   tagline: "Fokus Riset Adopsi Teknologi, Perilaku Sistem Informasi & Software Engineering",
   bio: "Seorang Akademisi / Peneliti di bidang Sistem Informasi sekaligus Full-Stack Software Developer. Berfokus pada riset adopsi teknologi digital (QRIS, E-Office), rekayasa perangkat lunak (SELC), serta pengembangan aplikasi web & mobile modern yang terstruktur.",
   location: "Salatiga & Central Java, Indonesia",
