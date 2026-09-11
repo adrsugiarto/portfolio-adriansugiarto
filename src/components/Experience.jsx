@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, GraduationCap, Calendar, MapPin, Award } from 'lucide-react';
+import { Briefcase, GraduationCap, Calendar, MapPin, Award, ExternalLink, BookOpen } from 'lucide-react';
 import { experienceData, educationData } from '../data/portfolioData';
 import './Experience.css';
 
@@ -92,7 +92,10 @@ const Experience = () => {
                       </span>
                     </div>
 
-                    <div className="exp-sub">
+                    <div className="exp-sub edu-inst-row">
+                      {edu.logo && (
+                        <img src={edu.logo} alt="UKSW Logo" className="edu-logo-img" />
+                      )}
                       <span className="exp-company">{edu.institution}</span>
                       <span className="edu-gpa-badge">
                         <Award size={13} />
@@ -101,6 +104,27 @@ const Experience = () => {
                     </div>
 
                     <p className="exp-desc">{edu.description}</p>
+
+                    {edu.thesisTitle && (
+                      <div className="exp-achievements edu-thesis-box">
+                        <span className="achieve-title edu-thesis-heading">
+                          <BookOpen size={14} />
+                          Tugas Akhir / Jurnal Publikasi:
+                        </span>
+                        <p className="edu-thesis-text">"{edu.thesisTitle}"</p>
+                        {edu.thesisUrl && (
+                          <a 
+                            href={edu.thesisUrl} 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="edu-doi-link"
+                          >
+                            <span>Jurnal DOI: {edu.thesisUrl}</span>
+                            <ExternalLink size={13} />
+                          </a>
+                        )}
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}

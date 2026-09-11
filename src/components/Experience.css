@@ -167,3 +167,70 @@
   flex-direction: column;
   gap: 4px;
 }
+
+/* UKSW Education Extensions */
+.edu-inst-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.edu-logo-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+}
+
+.edu-thesis-box {
+  background: var(--primary-50);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  border: 1px solid var(--border-blue);
+  margin-top: 12px;
+}
+
+[data-theme='dark'] .edu-thesis-box {
+  background: rgba(30, 58, 138, 0.25);
+}
+
+.edu-thesis-heading {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary-700);
+  margin-bottom: 4px;
+}
+
+[data-theme='dark'] .edu-thesis-heading {
+  color: var(--primary-300);
+}
+
+.edu-thesis-text {
+  font-size: 0.875rem;
+  color: var(--text-main);
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+
+.edu-doi-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary-600);
+  word-break: break-all;
+  transition: var(--transition);
+}
+
+[data-theme='dark'] .edu-doi-link {
+  color: var(--primary-400);
+}
+
+.edu-doi-link:hover {
+  text-decoration: underline;
+  gap: 8px;
+}

@@ -1,36 +1,36 @@
 import React from 'react';
-import { Award, CheckCircle2, Smile, Code2, ShieldCheck, Zap, Users, HeartHandshake } from 'lucide-react';
+import { Award, BookOpen, GraduationCap, Code2, ShieldCheck, Cpu, Layers, HeartHandshake } from 'lucide-react';
 import { profileData } from '../data/portfolioData';
 import './About.css';
 
 const About = () => {
   const iconMap = {
+    BookOpen: <BookOpen size={24} />,
     Award: <Award size={24} />,
-    CheckCircle2: <CheckCircle2 size={24} />,
-    Smile: <Smile size={24} />,
+    GraduationCap: <GraduationCap size={24} />,
     Code2: <Code2 size={24} />
   };
 
   const coreValues = [
     {
-      icon: <ShieldCheck size={28} className="value-icon" />,
-      title: "Arsitektur Kode Bersih",
-      desc: "Menulis kode yang mudah dipelihara, teruji, dan terstruktur sesuai best practice industri."
+      icon: <BookOpen size={26} className="value-icon" />,
+      title: "Riset Empiris Terstruktur",
+      desc: "Pendekatan berbasis data ilmiah, analisis kuantitatif (UTAUT2), dan metodologi riset teruji."
     },
     {
-      icon: <Zap size={28} className="value-icon" />,
-      title: "Performa & Kecepatan",
-      desc: "Optimasi waktu muat aplikasi hingga milidetik untuk meningkatkan angka konversi pengguna."
+      icon: <ShieldCheck size={26} className="value-icon" />,
+      title: "Prinsip Rekayasa Perangkat Lunak",
+      desc: "Implementasi siklus SELC/SDLC untuk menghasilkan arsitektur perangkat lunak yang andal."
     },
     {
-      icon: <HeartHandshake size={28} className="value-icon" />,
-      title: "Desain Berfokus UX",
-      desc: "Estetika biru & putih yang bersih memberikan visual intuitif dan kenyamanan berinteraksi."
+      icon: <Cpu size={26} className="value-icon" />,
+      title: "Pengembangan Software Modern",
+      desc: "Menulis kode React.js, Laravel, dan Node.js yang bersih, teruji, dan mudah dipelihara."
     },
     {
-      icon: <Users size={28} className="value-icon" />,
-      title: "Komunikasi Transparan",
-      desc: "Kolaborasi aktif dengan stakeholders untuk menghasilkan solusi bisnis tepat sasaran."
+      icon: <Layers size={26} className="value-icon" />,
+      title: "Integritas Akademis",
+      desc: "Berdedikasi pada transparansi publikasi ilmiah (ORCID) dan kontribusi ilmu pengetahuan."
     }
   ];
 
@@ -40,14 +40,14 @@ const About = () => {
         {/* Section Header */}
         <div className="section-header">
           <div className="section-badge">
-            <Code2 size={16} />
-            <span>Mengenal Lebih Dekat</span>
+            <BookOpen size={16} />
+            <span>Filosofi & Profil</span>
           </div>
           <h2 className="section-title">
-            Tentang <span className="text-gradient">Adrian Herma Sugiarto</span>
+            Tentang <span className="text-gradient">{profileData.shortName}</span>
           </h2>
           <p className="section-description">
-            Memadukan kreativitas antarmuka visual dengan kekuatan arsitektur backend scalable.
+            Mengombinasikan keilmuan akademis Sistem Informasi dengan keahlian praktis pengembangan perangkat lunak.
           </p>
         </div>
 
@@ -55,16 +55,16 @@ const About = () => {
         <div className="about-grid">
           {/* Bio Story Card */}
           <div className="glass-card about-bio-card">
-            <h3 className="bio-title">Dedikasi Pada Keunggulan Perangkat Lunak</h3>
+            <h3 className="bio-title">Latar Belakang Akademis & Pemrograman</h3>
             <p className="bio-paragraph">
               {profileData.bio}
             </p>
             <p className="bio-paragraph">
-              Berbasis di <strong>{profileData.location}</strong>, saya berpengalaman mengelola siklus pengembangan perangkat lunak dari konsep desain wireframe Figma hingga eksekusi pendeplotan server cloud AWS/Vercel.
+              Berbasis di <strong>{profileData.location}</strong>, saya menyelesaikan pendidikan Sarjana Sistem Informasi (S.SI) di Universitas Kristen Satya Wacana dengan predikat <strong>Cum Laude (IPK 3.94)</strong> dan melanjutkan studi Magister Sistem Informasi (M.Kom).
             </p>
             
             <div className="about-quote">
-              "Kualitas sebuah perangkat lunak tidak hanya terlihat dari tampilannya, melainkan bagaimana kode di baliknya memberikan rasa aman dan kenyamanan tanpa celah."
+              "Ilmu pengetahuan dan teknologi berkembang harmonis ketika riset ilmiah dipadukan dengan implementasi kode praktis yang bermanfaat nyata."
             </div>
           </div>
 
@@ -73,7 +73,7 @@ const About = () => {
             {profileData.stats.map((stat, idx) => (
               <div key={idx} className="glass-card stat-card">
                 <div className="stat-icon-wrapper">
-                  {iconMap[stat.icon]}
+                  {iconMap[stat.icon] || <Award size={24} />}
                 </div>
                 <div className="stat-value text-gradient">{stat.value}</div>
                 <div className="stat-label">{stat.label}</div>
@@ -84,7 +84,7 @@ const About = () => {
 
         {/* Core Principles Cards */}
         <div className="values-container">
-          <h3 className="values-heading">Prinsip & Nilai Kerja Utama</h3>
+          <h3 className="values-heading">Fokus Keilmuan & Nilai Utama</h3>
           <div className="values-grid">
             {coreValues.map((val, idx) => (
               <div key={idx} className="glass-card value-card">

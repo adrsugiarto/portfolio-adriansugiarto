@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, MessageCircle } from 'lucide-react';
-import { IconGithub, IconLinkedin } from './SocialIcons';
+import { IconGithub, IconLinkedin, IconOrcid } from './SocialIcons';
 import { profileData } from '../data/portfolioData';
 import './Contact.css';
 
@@ -98,6 +98,10 @@ const Contact = () => {
             <div className="contact-socials-box">
               <span className="socials-label">Kunjungi Profil Profesional:</span>
               <div className="socials-buttons">
+                <a href={profileData.orcid} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm btn-orcid-sm" title="ORCID iD">
+                  <IconOrcid size={16} />
+                  <span>ORCID</span>
+                </a>
                 <a href={profileData.github} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">
                   <IconGithub size={16} />
                   <span>GitHub</span>

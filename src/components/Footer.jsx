@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowUp, Heart, Mail } from 'lucide-react';
-import { IconGithub, IconLinkedin, IconDribbble } from './SocialIcons';
+import { IconGithub, IconLinkedin, IconDribbble, IconOrcid } from './SocialIcons';
 import { profileData } from '../data/portfolioData';
 import './Footer.css';
 
@@ -41,14 +41,14 @@ const Footer = () => {
           <div className="footer-links-group">
             <h4 className="footer-links-heading">Jaringan Sosial</h4>
             <div className="footer-social-icons">
+              <a href={profileData.orcid} target="_blank" rel="noopener noreferrer" className="footer-social-btn" title="ORCID iD">
+                <IconOrcid size={18} />
+              </a>
               <a href={profileData.github} target="_blank" rel="noopener noreferrer" className="footer-social-btn" title="GitHub">
                 <IconGithub size={18} />
               </a>
               <a href={profileData.linkedin} target="_blank" rel="noopener noreferrer" className="footer-social-btn" title="LinkedIn">
                 <IconLinkedin size={18} />
-              </a>
-              <a href={profileData.dribbble} target="_blank" rel="noopener noreferrer" className="footer-social-btn" title="Dribbble">
-                <IconDribbble size={18} />
               </a>
               <a href={`mailto:${profileData.email}`} className="footer-social-btn" title="Email">
                 <Mail size={18} />

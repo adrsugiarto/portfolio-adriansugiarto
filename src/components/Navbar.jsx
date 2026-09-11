@@ -20,10 +20,10 @@ const Navbar = ({ theme, toggleTheme }) => {
 
   const navLinks = [
     { name: 'Beranda', href: '#hero' },
-    { name: 'Tentang Saya', href: '#about' },
+    { name: 'Publikasi Jurnal', href: '#publications' },
+    { name: 'Pendidikan & Karir', href: '#experience' },
     { name: 'Keahlian', href: '#skills' },
-    { name: 'Proyek', href: '#projects' },
-    { name: 'Pengalaman', href: '#experience' },
+    { name: 'Aplikasi & Proyek', href: '#projects' },
     { name: 'Kontak', href: '#contact' },
   ];
 

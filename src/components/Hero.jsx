@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowRight, Download, Mail, Sparkles, Code, Terminal, Layers, CheckCircle } from 'lucide-react';
+import { ArrowRight, Download, Mail, Sparkles, BookOpen, Code2, Award, ExternalLink } from 'lucide-react';
+import { IconOrcid } from './SocialIcons';
 import { profileData } from '../data/portfolioData';
 import './Hero.css';
 
@@ -11,56 +12,55 @@ const Hero = () => {
       <div className="hero-bg-glow glow-2"></div>
 
       <div className="container hero-container">
-        {/* Left Column: Text & CTAs */}
+        {/* Left Column: Text & Academic Info */}
         <div className="hero-content">
           <div className="status-badge">
             <span className="status-dot"></span>
-            <span>Tersedia untuk Proyek & Kolaborasi</span>
+            <span>Peneliti Sistem Informasi & Software Engineer</span>
           </div>
 
           <h1 className="hero-title">
-            Membangun Pengalaman Digital yang <span className="text-gradient">Elegan, Cepat</span> & Skalabel.
+            {profileData.name}
           </h1>
 
           <p className="hero-subtitle">
-            Halo! Saya <strong>{profileData.name}</strong>, seorang {profileData.title}. Saya mengombinasikan desain estetis bertema biru & putih yang bersih dengan arsitektur kode kelas dunia.
+            {profileData.bio}
           </p>
 
-          {/* Action Buttons */}
+          {/* Action Buttons with ORCID & Publications CTA */}
           <div className="hero-actions">
-            <a href="#projects" className="btn btn-primary">
-              <span>Lihat Portfolio</span>
-              <ArrowRight size={18} />
-            </a>
-
-            <a href="#contact" className="btn btn-secondary">
-              <Mail size={18} />
-              <span>Hubungi Saya</span>
+            <a href="#publications" className="btn btn-primary">
+              <BookOpen size={18} />
+              <span>Riset & Publikasi Jurnal</span>
             </a>
 
             <a 
-              href="#" 
-              onClick={(e) => { e.preventDefault(); alert("Unduh CV Simulation: File PDF Adrian_Herma_Sugiarto_CV.pdf siap diunduh."); }}
-              className="btn btn-secondary btn-icon-only" 
-              title="Unduh Resume / CV"
+              href={profileData.orcid} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn btn-secondary btn-orcid-hero"
             >
-              <Download size={18} />
+              <IconOrcid size={20} />
+              <span>ORCID: {profileData.orcidId}</span>
+            </a>
+
+            <a href="#contact" className="btn btn-secondary btn-icon-only" title="Hubungi Saya">
+              <Mail size={18} />
             </a>
           </div>
 
-          {/* Quick Highlights / Tech ticker */}
+          {/* Quick Academic & Tech Badges */}
           <div className="hero-tech-ticker">
-            <span className="ticker-label">Tech Stack Utama:</span>
+            <span className="ticker-label">Bidang Fokus:</span>
             <div className="ticker-badges">
-              <span className="tech-tag"><Code size={14} /> React.js</span>
-              <span className="tech-tag"><Terminal size={14} /> Node.js</span>
-              <span className="tech-tag"><Layers size={14} /> TypeScript</span>
-              <span className="tech-tag"><Sparkles size={14} /> Figma UI/UX</span>
+              <span className="tech-tag"><BookOpen size={14} /> Adopsi Sistem Informasi (QRIS)</span>
+              <span className="tech-tag"><Code2 size={14} /> Rekayasa Perangkat Lunak (SELC)</span>
+              <span className="tech-tag"><Sparkles size={14} /> Full-Stack Development</span>
             </div>
           </div>
         </div>
 
-        {/* Right Column: Visual Spotlight Card */}
+        {/* Right Column: Clean Academic Spotlight Card */}
         <div className="hero-visual">
           <div className="spotlight-card glass-card animate-float">
             <div className="card-top-bar">
@@ -69,7 +69,7 @@ const Hero = () => {
                 <span className="dot dot-yellow"></span>
                 <span className="dot dot-green"></span>
               </div>
-              <div className="window-title">adrian-sugiarto.dev</div>
+              <div className="window-title">orcid.org/0009-0002-6704-2507</div>
             </div>
 
             <div className="profile-wrapper">
@@ -83,25 +83,25 @@ const Hero = () => {
               </div>
 
               <div className="profile-info-box">
-                <h3 className="profile-name">{profileData.name}</h3>
-                <p className="profile-role">{profileData.title}</p>
+                <h3 className="profile-name">{profileData.shortName}</h3>
+                <p className="profile-role">M.Kom. & S.SI. - UKSW Salatiga</p>
               </div>
             </div>
 
-            {/* Floating Info Badges */}
+            {/* Floating Academic Badges */}
             <div className="floating-badge badge-top-right">
-              <div className="badge-icon"><CheckCircle size={16} /></div>
+              <div className="badge-icon"><IconOrcid size={20} /></div>
               <div className="badge-text">
-                <span className="badge-val">45+ Proyek</span>
-                <span className="badge-lbl">Selesai Tepat Waktu</span>
+                <span className="badge-val">ORCID Verified</span>
+                <span className="badge-lbl">Peneliti Terdaftar</span>
               </div>
             </div>
 
             <div className="floating-badge badge-bottom-left">
-              <div className="badge-icon"><Sparkles size={16} /></div>
+              <div className="badge-icon"><Award size={18} /></div>
               <div className="badge-text">
-                <span className="badge-val">Biru & Putih</span>
-                <span className="badge-lbl">Estetika Elegan</span>
+                <span className="badge-val">IPK 3.94</span>
+                <span className="badge-lbl">Cum Laude (S.SI)</span>
               </div>
             </div>
           </div>

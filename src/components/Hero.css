@@ -122,6 +122,16 @@
   margin-bottom: 40px;
 }
 
+.btn-orcid-hero {
+  border-color: #A6CE39;
+  background: var(--bg-card);
+}
+
+.btn-orcid-hero:hover {
+  background: rgba(166, 206, 57, 0.15);
+  border-color: #A6CE39;
+}
+
 .hero-tech-ticker {
   display: flex;
   align-items: center;
