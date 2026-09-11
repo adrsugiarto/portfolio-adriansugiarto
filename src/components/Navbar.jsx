@@ -1,0 +1,123 @@
+import React, { useState, useEffect } from 'react';
+import { Menu, X, Sun, Moon, Sparkles, Send } from 'lucide-react';
+import './Navbar.css';
+
+const Navbar = ({ theme, toggleTheme }) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: 'Beranda', href: '#hero' },
+    { name: 'Tentang Saya', href: '#about' },
+    { name: 'Keahlian', href: '#skills' },
+    { name: 'Proyek', href: '#projects' },
+    { name: 'Pengalaman', href: '#experience' },
+    { name: 'Kontak', href: '#contact' },
+  ];
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    const targetElement = document.querySelector(href);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <header className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
+      <div className="container navbar-container">
+        {/* Brand Logo */}
+        <a href="#hero" className="navbar-logo" onClick={(e) => handleNavClick(e, '#hero')}>
+          <div className="logo-badge">
+            <span>AHS</span>
+          </div>
+          <div className="logo-text">
+            <span className="logo-name">Adrian Herma</span>
+            <span className="logo-dot">.</span>
+          </div>
+        </a>
+
+        {/* Desktop Nav Links */}
+        <nav className="nav-desktop">
+          <ul className="nav-list">
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <a 
+                  href={link.href} 
+                  className="nav-link"
+                  onClick={(e) => handleNavClick(e, link.href)}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        {/* Actions & Theme Toggle */}
+        <div className="nav-actions">
+          <button 
+            className="theme-toggle-btn" 
+            onClick={toggleTheme}
+            aria-label="Toggle Dark/Light Mode"
+            title={theme === 'dark' ? 'Mode Terang' : 'Mode Gelap'}
+          >
+            {theme === 'dark' ? <Sun className="icon-theme" size={20} /> : <Moon className="icon-theme" size={20} />}
+          </button>
+
+          <a 
+            href="#contact" 
+            className="btn btn-primary btn-sm btn-nav-cta"
+            onClick={(e) => handleNavClick(e, '#contact')}
+          >
+            <span>Hubungi Saya</span>
+            <Send size={15} />
+          </a>
+
+          {/* Mobile Menu Hamburger */}
+          <button 
+            className="mobile-menu-btn" 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle Mobile Menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Drawer */}
+      {mobileMenuOpen && (
+        <div className="mobile-drawer">
+          <ul className="mobile-nav-list">
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <a 
+                  href={link.href} 
+                  className="mobile-nav-link"
+                  onClick={(e) => handleNavClick(e, link.href)}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </header>
+  );
+};
+
+export default Navbar;

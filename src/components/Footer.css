@@ -1,0 +1,138 @@
+.footer {
+  background: var(--primary-950);
+  color: #FFFFFF;
+  padding: 80px 0 30px 0;
+  border-top: 1px solid var(--border-blue);
+  position: relative;
+}
+
+[data-theme='dark'] .footer {
+  background: #070D19;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+@media (max-width: 992px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.footer-logo .logo-text {
+  color: #FFFFFF;
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.footer-tagline {
+  color: var(--primary-300);
+  font-size: 0.95rem;
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+.footer-links-heading {
+  font-size: 1.05rem;
+  margin-bottom: 20px;
+  color: #FFFFFF;
+}
+
+.footer-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links-list a {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.footer-links-list a:hover {
+  color: var(--primary-400);
+  padding-left: 4px;
+}
+
+.footer-social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-social-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  transition: var(--transition);
+}
+
+.footer-social-btn:hover {
+  background: var(--primary-600);
+  border-color: var(--primary-500);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.copyright-text {
+  font-size: 0.875rem;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.heart-icon {
+  color: #EF4444;
+  fill: #EF4444;
+}
+
+.back-to-top-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #FFFFFF;
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.back-to-top-btn:hover {
+  background: var(--primary-600);
+  border-color: var(--primary-500);
+}
