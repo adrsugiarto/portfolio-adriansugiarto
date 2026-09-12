@@ -46,6 +46,13 @@
   font-family: monospace;
 }
 
+.academic-profile-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
 .orcid-btn {
   border-color: #A6CE39;
 }
@@ -53,6 +60,15 @@
 .orcid-btn:hover {
   background: rgba(166, 206, 57, 0.15);
   border-color: #A6CE39;
+}
+
+.scholar-btn {
+  border-color: #4285F4;
+}
+
+.scholar-btn:hover {
+  background: rgba(66, 133, 244, 0.15);
+  border-color: #4285F4;
 }
 
 .publications-list {

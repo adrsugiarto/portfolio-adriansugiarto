@@ -1,18 +1,19 @@
 export const profileData = {
   name: "Adrian Herma Sugiarto, S.SI., M.Kom.",
   shortName: "Adrian Herma Sugiarto",
-  title: "Peneliti Sistem Informasi & Full-Stack Developer",
+  title: "Akademisi",
   avatar: "/foto_adriansugiarto.png",
   tagline: "Fokus Riset Adopsi Teknologi, Perilaku Sistem Informasi & Software Engineering",
-  bio: "Seorang Akademisi / Peneliti di bidang Sistem Informasi sekaligus Full-Stack Software Developer. Berfokus pada riset adopsi teknologi digital (QRIS, E-Office), rekayasa perangkat lunak (SELC), serta pengembangan aplikasi web & mobile modern yang terstruktur.",
+  bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets.",
   location: "Salatiga & Central Java, Indonesia",
-  email: "adrian.sugiarto@example.com",
+  email: "adriansugiarto01@gmail.com",
+  academicEmail: "adrian.sugiarto@uksw.edu",
   phone: "+62 812-3456-7890",
   whatsapp: "https://wa.me/6281234567890",
   orcid: "https://orcid.org/0009-0002-6704-2507",
   orcidId: "0009-0002-6704-2507",
-  github: "https://github.com/adriansugiarto",
-  linkedin: "https://linkedin.com/in/adriansugiarto",
+  github: "https://github.com/adrsugiarto",
+  linkedin: "https://linkedin.com/in/adrsugiarto",
   googleScholar: "https://scholar.google.com",
   resumeUrl: "#cv",
   stats: [
@@ -25,28 +26,28 @@ export const profileData = {
 
 export const publicationsData = [
   {
-    id: "pub-qris-2024",
+    id: "pub-qris-2026",
     title: "INFORMATION SYSTEMS ADOPTION AND USE BEHAVIOR OF QRIS AS A DIGITAL PAYMENT INFRASTRUCTURE AMONG GENERATION Z",
-    authors: "Adrian Herma Sugiarto, et al.",
+    authors: "Adrian Herma Sugiarto, Evi Maria, Yessica Nataliani ",
     journal: "Jurnal Ilmiah Ilmu Terapan Universitas Jambi (JIITUJ)",
-    year: "2024",
+    year: "2026",
     doi: "10.22437/jiituj.v10i2.54186",
     doiUrl: "https://doi.org/10.22437/jiituj.v10i2.54186",
-    category: "Perilaku Sistem Informasi & Payment Infrastructure",
+    category: "SINTA 1",
     abstract: "Menganalisis faktor-faktor psikologis dan teknis yang memengaruhi adopsi serta penggunaan infrastruktur pembayaran digital QRIS oleh Generasi Z.",
-    keywords: ["QRIS", "System Adoption", "UTAUT2", "Digital Payment", "Generation Z"]
+    keywords: ["Digital Payment", "Generation Z", "Personal Innovativeness", "QRIS", "UTAUT2"]
   },
   {
     id: "pub-eoffice-2023",
     title: "ANALISA KEBUTUHAN SISTEM INFORMASI ELECTRONIC OFFICE PADA KANTOR GEREJA MENGGUNAKAN MODEL SYSTEM ENGINEERING LIFE CYCLE",
-    authors: "Adrian Herma Sugiarto, et al.",
-    journal: "Jurnal Teknologi Sistem Informasi (JTSI)",
+    authors: "Adrian Herma Sugiarto, Dwi Hosanna Bangkalang",
+    journal: "Jurnal Teknologi Sistem Informasi dan Aplikasi (JTSI)",
     year: "2023",
     doi: "10.32493/jtsi.v6i3.30360",
     doiUrl: "http://doi.org/10.32493/jtsi.v6i3.30360",
-    category: "Rekayasa Perangkat Lunak & E-Office",
+    category: "SINTA 3",
     abstract: "Studi analisis kebutuhan sistem informasi E-Office pada tata kelola kantor gereja menggunakan pendekatan System Engineering Life Cycle (SELC).",
-    keywords: ["Electronic Office", "SELC", "Requirement Analysis", "Information System"]
+    keywords: ["Electronic Office", "Manajemen Surat", "System Engineering Life Cycle"]
   }
 ];
 
@@ -123,7 +124,7 @@ export const projectsData = [
     tags: ["PHP Laravel", "MySQL", "System Engineering", "Bootstrap"],
     featured: true,
     liveUrl: "http://doi.org/10.32493/jtsi.v6i3.30360",
-    githubUrl: "https://github.com/adriansugiarto",
+    githubUrl: "https://github.com/adrsugiarto",
     metrics: ["Terpublikasi di Jurnal JTSI", "Implementasi SELC"]
   },
   {
@@ -136,7 +137,7 @@ export const projectsData = [
     tags: ["React", "TypeScript", "Chart.js", "Data Analysis"],
     featured: true,
     liveUrl: "https://doi.org/10.22437/jiituj.v10i2.54186",
-    githubUrl: "https://github.com/adriansugiarto",
+    githubUrl: "https://github.com/adrsugiarto",
     metrics: ["Terpublikasi di JIITUJ", "Model UTAUT2"]
   },
   {
@@ -149,7 +150,7 @@ export const projectsData = [
     tags: ["React", "Node.js", "Express", "PostgreSQL"],
     featured: false,
     liveUrl: "https://github.com/adriansugiarto",
-    githubUrl: "https://github.com/adriansugiarto",
+    githubUrl: "https://github.com/adrsugiarto",
     metrics: ["Sederhana & Responsif"]
   }
 ];

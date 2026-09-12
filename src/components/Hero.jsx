@@ -4,7 +4,7 @@ import { IconOrcid } from './SocialIcons';
 import { profileData } from '../data/portfolioData';
 import './Hero.css';
 
-const Hero = () => {
+const Hero = ({ t }) => {
   return (
     <section id="hero" className="hero-section">
       {/* Background Decorative Glow Effects */}
@@ -16,7 +16,7 @@ const Hero = () => {
         <div className="hero-content">
           <div className="status-badge">
             <span className="status-dot"></span>
-            <span>Peneliti Sistem Informasi & Software Engineer</span>
+            <span>{t?.badge || 'Akademisi'}</span>
           </div>
 
           <h1 className="hero-title">
@@ -31,17 +31,17 @@ const Hero = () => {
           <div className="hero-actions">
             <a href="#publications" className="btn btn-primary">
               <BookOpen size={18} />
-              <span>Riset & Publikasi Jurnal</span>
+              <span>{t?.pubBtn || 'Riset & Publikasi Jurnal'}</span>
             </a>
 
-            <a 
-              href={profileData.orcid} 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href={profileData.orcid}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-secondary btn-orcid-hero"
             >
               <IconOrcid size={20} />
-              <span>ORCID: {profileData.orcidId}</span>
+              <span>{t?.orcidBtn || 'ORCID:'} {profileData.orcidId}</span>
             </a>
 
             <a href="#contact" className="btn btn-secondary btn-icon-only" title="Hubungi Saya">
@@ -51,11 +51,11 @@ const Hero = () => {
 
           {/* Quick Academic & Tech Badges */}
           <div className="hero-tech-ticker">
-            <span className="ticker-label">Bidang Fokus:</span>
+            <span className="ticker-label">{t?.focusLabel || 'Bidang Fokus:'}</span>
             <div className="ticker-badges">
-              <span className="tech-tag"><BookOpen size={14} /> Adopsi Sistem Informasi (QRIS)</span>
-              <span className="tech-tag"><Code2 size={14} /> Rekayasa Perangkat Lunak (SELC)</span>
-              <span className="tech-tag"><Sparkles size={14} /> Full-Stack Development</span>
+              <span className="tech-tag"><BookOpen size={14} /> {t?.focus1 || 'Evaluasi Sistem Informasi'}</span>
+              <span className="tech-tag"><Code2 size={14} /> {t?.focus2 || 'Rekayasa Perangkat Lunak'}</span>
+              <span className="tech-tag"><Sparkles size={14} /> {t?.focus3 || 'Full-Stack Development'}</span>
             </div>
           </div>
         </div>
@@ -64,9 +64,9 @@ const Hero = () => {
         <div className="hero-visual">
           <div className="portrait-container">
             <div className="portrait-backdrop-glow"></div>
-            <img 
-              src={profileData.avatar} 
-              alt={profileData.name} 
+            <img
+              src={profileData.avatar}
+              alt={profileData.name}
               className="portrait-standalone-img profile-img-bw"
             />
             <div className="portrait-bottom-fade"></div>

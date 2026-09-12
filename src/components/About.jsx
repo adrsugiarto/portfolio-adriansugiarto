@@ -3,7 +3,7 @@ import { Award, BookOpen, GraduationCap, Code2, ShieldCheck, Cpu, Layers, HeartH
 import { profileData } from '../data/portfolioData';
 import './About.css';
 
-const About = () => {
+const About = ({ t }) => {
   const iconMap = {
     BookOpen: <BookOpen size={24} />,
     Award: <Award size={24} />,
@@ -14,23 +14,23 @@ const About = () => {
   const coreValues = [
     {
       icon: <BookOpen size={26} className="value-icon" />,
-      title: "Riset Empiris Terstruktur",
-      desc: "Pendekatan berbasis data ilmiah, analisis kuantitatif (UTAUT2), dan metodologi riset teruji."
+      title: t?.val1Title || "Riset Empiris Terstruktur",
+      desc: t?.val1Desc || "Pendekatan berbasis data ilmiah, analisis kuantitatif (UTAUT2), dan metodologi riset teruji."
     },
     {
       icon: <ShieldCheck size={26} className="value-icon" />,
-      title: "Prinsip Rekayasa Perangkat Lunak",
-      desc: "Implementasi siklus SELC/SDLC untuk menghasilkan arsitektur perangkat lunak yang andal."
+      title: t?.val2Title || "Prinsip Rekayasa Perangkat Lunak",
+      desc: t?.val2Desc || "Implementasi siklus SELC/SDLC untuk menghasilkan arsitektur perangkat lunak yang andal."
     },
     {
       icon: <Cpu size={26} className="value-icon" />,
-      title: "Pengembangan Software Modern",
-      desc: "Menulis kode React.js, Laravel, dan Node.js yang bersih, teruji, dan mudah dipelihara."
+      title: t?.val3Title || "Pengembangan Software Modern",
+      desc: t?.val3Desc || "Menulis kode React.js, Laravel, dan Node.js yang bersih, teruji, dan mudah dipelihara."
     },
     {
       icon: <Layers size={26} className="value-icon" />,
-      title: "Integritas Akademis",
-      desc: "Berdedikasi pada transparansi publikasi ilmiah (ORCID) dan kontribusi ilmu pengetahuan."
+      title: t?.val4Title || "Integritas Akademis",
+      desc: t?.val4Desc || "Berdedikasi pada transparansi publikasi ilmiah (ORCID) dan kontribusi ilmu pengetahuan."
     }
   ];
 
@@ -41,13 +41,13 @@ const About = () => {
         <div className="section-header">
           <div className="section-badge">
             <BookOpen size={16} />
-            <span>Filosofi & Profil</span>
+            <span>{t?.badge || 'Filosofi & Profil'}</span>
           </div>
           <h2 className="section-title">
-            Tentang <span className="text-gradient">{profileData.shortName}</span>
+            {t?.title || 'Tentang'} <span className="text-gradient">{profileData.shortName}</span>
           </h2>
           <p className="section-description">
-            Mengombinasikan keilmuan akademis Sistem Informasi dengan keahlian praktis pengembangan perangkat lunak.
+            {t?.sub || 'Mengombinasikan keilmuan akademis Sistem Informasi dengan keahlian praktis pengembangan perangkat lunak.'}
           </p>
         </div>
 
@@ -55,16 +55,13 @@ const About = () => {
         <div className="about-grid">
           {/* Bio Story Card */}
           <div className="glass-card about-bio-card">
-            <h3 className="bio-title">Latar Belakang Akademis & Pemrograman</h3>
+            <h3 className="bio-title">{t?.bioTitle || 'Latar Belakang Akademis & Pemrograman'}</h3>
             <p className="bio-paragraph">
               {profileData.bio}
             </p>
-            <p className="bio-paragraph">
-              Berbasis di <strong>{profileData.location}</strong>, saya menyelesaikan pendidikan Sarjana Sistem Informasi (S.SI) di Universitas Kristen Satya Wacana dengan predikat <strong>Cum Laude (IPK 3.94)</strong> dan melanjutkan studi Magister Sistem Informasi (M.Kom).
-            </p>
             
             <div className="about-quote">
-              "Ilmu pengetahuan dan teknologi berkembang harmonis ketika riset ilmiah dipadukan dengan implementasi kode praktis yang bermanfaat nyata."
+              {t?.quote || '"Ilmu pengetahuan dan teknologi berkembang harmonis ketika riset ilmiah dipadukan dengan implementasi kode praktis yang bermanfaat nyata."'}
             </div>
           </div>
 
@@ -84,7 +81,7 @@ const About = () => {
 
         {/* Core Principles Cards */}
         <div className="values-container">
-          <h3 className="values-heading">Fokus Keilmuan & Nilai Utama</h3>
+          <h3 className="values-heading">{t?.valuesHeading || 'Fokus Keilmuan & Nilai Utama'}</h3>
           <div className="values-grid">
             {coreValues.map((val, idx) => (
               <div key={idx} className="glass-card value-card">

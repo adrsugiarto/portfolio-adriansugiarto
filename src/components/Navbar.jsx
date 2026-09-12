@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon, Sparkles, Send } from 'lucide-react';
+import { profileData } from '../data/portfolioData';
 import './Navbar.css';
 
-const Navbar = ({ theme, toggleTheme }) => {
+const Navbar = ({ theme, toggleTheme, lang = 'id', toggleLang, t }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -19,12 +20,12 @@ const Navbar = ({ theme, toggleTheme }) => {
   }, []);
 
   const navLinks = [
-    { name: 'Beranda', href: '#hero' },
-    { name: 'Publikasi Jurnal', href: '#publications' },
-    { name: 'Pendidikan & Karir', href: '#experience' },
-    { name: 'Keahlian', href: '#skills' },
-    { name: 'Aplikasi & Proyek', href: '#projects' },
-    { name: 'Kontak', href: '#contact' },
+    { name: t?.home || 'Beranda', href: '#hero' },
+    { name: t?.publications || 'Publikasi Jurnal', href: '#publications' },
+    { name: t?.education || 'Pendidikan & Karir', href: '#experience' },
+    { name: t?.skills || 'Keahlian', href: '#skills' },
+    { name: t?.projects || 'Aplikasi & Proyek', href: '#projects' },
+    { name: t?.contact || 'Kontak', href: '#contact' },
   ];
 
   const handleNavClick = (e, href) => {
@@ -45,7 +46,7 @@ const Navbar = ({ theme, toggleTheme }) => {
             <span>AHS</span>
           </div>
           <div className="logo-text">
-            <span className="logo-name">Adrian Herma</span>
+            <span className="logo-name">{profileData.shortName}</span>
             <span className="logo-dot">.</span>
           </div>
         </a>
@@ -67,8 +68,19 @@ const Navbar = ({ theme, toggleTheme }) => {
           </ul>
         </nav>
 
-        {/* Actions & Theme Toggle */}
+        {/* Actions & Theme/Lang Toggles */}
         <div className="nav-actions">
+          {/* Language Switcher ID/EN Button */}
+          <button 
+            className="lang-toggle-btn" 
+            onClick={toggleLang}
+            aria-label="Toggle Language"
+            title={lang === 'id' ? 'Switch to English' : 'Ubah ke Bahasa Indonesia'}
+          >
+            <span className="lang-badge">{lang.toUpperCase()}</span>
+          </button>
+
+          {/* Dark/Light Mode Toggle Button */}
           <button 
             className="theme-toggle-btn" 
             onClick={toggleTheme}
@@ -83,7 +95,7 @@ const Navbar = ({ theme, toggleTheme }) => {
             className="btn btn-primary btn-sm btn-nav-cta"
             onClick={(e) => handleNavClick(e, '#contact')}
           >
-            <span>Hubungi Saya</span>
+            <span>{t?.contactBtn || 'Hubungi Saya'}</span>
             <Send size={15} />
           </a>
 

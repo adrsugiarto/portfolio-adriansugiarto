@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, CheckCircle2, MessageCircle } from 'lucide-react';
-import { IconGithub, IconLinkedin, IconOrcid } from './SocialIcons';
+import { IconGithub, IconLinkedin, IconOrcid, IconInstagram, IconFacebook, IconTiktok } from './SocialIcons';
 import { profileData } from '../data/portfolioData';
 import './Contact.css';
 
@@ -68,18 +68,18 @@ const Contact = () => {
                   <Mail size={22} />
                 </div>
                 <div className="info-details">
-                  <span className="info-label">Email Saya</span>
+                  <span className="info-label">Email Pribadi</span>
                   <span className="info-val">{profileData.email}</span>
                 </div>
               </a>
 
-              <a href={profileData.whatsapp} target="_blank" rel="noopener noreferrer" className="glass-card contact-info-card">
+              <a href={`mailto:${profileData.academicEmail}`} className="glass-card contact-info-card">
                 <div className="contact-icon-box">
-                  <Phone size={22} />
+                  <Mail size={22} />
                 </div>
                 <div className="info-details">
-                  <span className="info-label">Telepon / WhatsApp</span>
-                  <span className="info-val">{profileData.phone}</span>
+                  <span className="info-label">Email Kampus / Akademis</span>
+                  <span className="info-val">{profileData.academicEmail}</span>
                 </div>
               </a>
 
@@ -94,13 +94,21 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Social Links */}
+            {/* Reach Me Social Links */}
             <div className="contact-socials-box">
-              <span className="socials-label">Kunjungi Profil Profesional:</span>
+              <span className="socials-label">Reach Me / Media Sosial:</span>
               <div className="socials-buttons">
-                <a href={profileData.orcid} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm btn-orcid-sm" title="ORCID iD">
-                  <IconOrcid size={16} />
-                  <span>ORCID</span>
+                <a href={profileData.instagram} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">
+                  <IconInstagram size={16} />
+                  <span>Instagram</span>
+                </a>
+                <a href={profileData.facebook} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">
+                  <IconFacebook size={16} />
+                  <span>Facebook</span>
+                </a>
+                <a href={profileData.tiktok} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">
+                  <IconTiktok size={16} />
+                  <span>TikTok</span>
                 </a>
                 <a href={profileData.github} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">
                   <IconGithub size={16} />
@@ -109,6 +117,10 @@ const Contact = () => {
                 <a href={profileData.linkedin} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm">
                   <IconLinkedin size={16} />
                   <span>LinkedIn</span>
+                </a>
+                <a href={profileData.orcid} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-sm btn-orcid-sm" title="ORCID iD">
+                  <IconOrcid size={16} />
+                  <span>ORCID</span>
                 </a>
               </div>
             </div>

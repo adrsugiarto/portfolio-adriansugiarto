@@ -1,10 +1,10 @@
 import React from 'react';
 import { BookOpen, ExternalLink, Award, Sparkles, Tag, CheckCircle2 } from 'lucide-react';
-import { IconOrcid } from './SocialIcons';
+import { IconOrcid, IconGoogleScholar } from './SocialIcons';
 import { publicationsData, profileData } from '../data/portfolioData';
 import './Publications.css';
 
-const Publications = () => {
+const Publications = ({ t }) => {
   return (
     <section id="publications" className="section publications-section">
       <div className="container">
@@ -12,17 +12,17 @@ const Publications = () => {
         <div className="section-header">
           <div className="section-badge">
             <BookOpen size={16} />
-            <span>Karya Ilmiah & Riset Akademis</span>
+            <span>{t?.badge || 'Karya Ilmiah & Riset Akademis'}</span>
           </div>
           <h2 className="section-title">
-            Publikasi <span className="text-gradient">Jurnal Ilmiah</span>
+            {t?.title || 'Publikasi'} <span className="text-gradient">{t?.titleGradient || 'Jurnal Ilmiah'}</span>
           </h2>
           <p className="section-description">
-            Riset bidang Sistem Informasi yang telah dipublikasikan pada jurnal ilmiah terakreditasi.
+            {t?.sub || 'Riset bidang Sistem Informasi yang telah dipublikasikan pada jurnal ilmiah terakreditasi.'}
           </p>
         </div>
 
-        {/* ORCID Profile Card Accent */}
+        {/* Academic Profile Highlight Card */}
         <div className="orcid-highlight-card glass-card">
           <div className="orcid-left">
             <div className="orcid-badge-icon">
@@ -33,15 +33,29 @@ const Publications = () => {
               <span className="orcid-id">ORCID iD: {profileData.orcidId}</span>
             </div>
           </div>
-          <a 
-            href={profileData.orcid} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="btn btn-secondary btn-sm orcid-btn"
-          >
-            <span>Buka Profil ORCID</span>
-            <ExternalLink size={15} />
-          </a>
+          <div className="academic-profile-actions">
+            <a
+              href={profileData.orcid}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary btn-sm orcid-btn"
+            >
+              <IconOrcid size={18} />
+              <span>{t?.openOrcid || 'Buka Profil ORCID'}</span>
+              <ExternalLink size={14} />
+            </a>
+
+            <a
+              href={profileData.googleScholar}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary btn-sm scholar-btn"
+            >
+              <IconGoogleScholar size={18} />
+              <span>{t?.openScholar || 'Buka Profil Google Scholar'}</span>
+              <ExternalLink size={14} />
+            </a>
+          </div>
         </div>
 
         {/* Publications List */}
@@ -56,27 +70,27 @@ const Publications = () => {
               <h3 className="pub-title">{pub.title}</h3>
 
               <div className="pub-meta">
-                <span className="pub-authors">Peneliti: <strong>{pub.authors}</strong></span>
-                <span className="pub-journal">Jurnal: <strong>{pub.journal}</strong></span>
+                <span className="pub-authors">{t?.authors || 'Penulis:'} <strong>{pub.authors}</strong></span>
+                <span className="pub-journal">{t?.journal || 'Jurnal:'} <strong>{pub.journal}</strong></span>
               </div>
 
               <p className="pub-abstract">{pub.abstract}</p>
 
               <div className="pub-keywords">
-                <span className="kw-label"><Tag size={13} /> Kata Kunci:</span>
+                <span className="kw-label"><Tag size={13} /> {t?.keywords || 'Kata Kunci:'}</span>
                 {pub.keywords.map((kw, kIdx) => (
                   <span key={kIdx} className="kw-badge">{kw}</span>
                 ))}
               </div>
 
               <div className="pub-footer">
-                <a 
-                  href={pub.doiUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href={pub.doiUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn btn-primary btn-sm pub-doi-btn"
                 >
-                  <span>DOI Jurnal: {pub.doi}</span>
+                  <span>{t?.doiBtn || 'DOI Jurnal:'} {pub.doi}</span>
                   <ExternalLink size={15} />
                 </a>
               </div>
